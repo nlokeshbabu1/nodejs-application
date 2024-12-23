@@ -5,11 +5,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-
   setup:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: checkout the code
     - uses: actions/checkout@v4
