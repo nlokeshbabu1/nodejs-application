@@ -39,6 +39,6 @@ jobs:
       uses: docker/build-push-action@v6
       with:
         context: .
-        file: ./Dockefile
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs:${{github.run_id}}
