@@ -31,8 +31,8 @@ jobs:
     - name: login to docker hub
       uses: actions/login-action@v3
       with:
-        username: ${{secret.DOCKERHUB_USERNAME}}
-        password: ${{secret.DOCKERHUB_PASSWORD}}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
     #build any push the code
     - name: build and push the code
@@ -41,4 +41,4 @@ jobs:
         context: .
         file: ./Dockefile
         push: true
-        tags: ${{secret.DOCKERHUB_USERNAME}}/sample-nodejs:${{github.run_id}}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs:${{github.run_id}}
