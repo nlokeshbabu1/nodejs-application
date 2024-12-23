@@ -7,9 +7,10 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    
     steps:
     - name: checkout the code
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
 
     ##Install the nodes js 
     - name: setup nodes js 
@@ -22,7 +23,7 @@ jobs:
     needs: setup
     steps:
 
-    #build the docker file
+    #checkout the docker file
     - name: checkout the code
       uses: actions/checkout@v4
 
@@ -30,5 +31,14 @@ jobs:
     - name: login to docker hub
       uses: actions/login-action@v3
       with:
-        username: ${{secret.USERNAME}}
-        password: ${{secret.PASSWORD}}
+        username: ${{secret.DOCKERHUB_USERNAME}}
+        password: ${{secret.DOCKERHUB_PASSWORD}}
+
+    #build any push the code
+    - name: build and push the code
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        file: ./Dockefile
+        push: true
+        tags: ${{secret.DOCKERHUB_USERNAME}}/sample-nodejs:${{github.run_id}}
