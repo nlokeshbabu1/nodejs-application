@@ -6,7 +6,7 @@ on:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     steps:
     - name: checkout the code
@@ -20,7 +20,7 @@ jobs:
 
 
   sonarqube:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: setup
     steps:
     - name: checkout the code
@@ -39,7 +39,7 @@ jobs:
 
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: sonarqube
     steps:
 
@@ -65,7 +65,7 @@ jobs:
 
 
   trivy_scan:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
       - name: Run Trivy vulnerability scanner
