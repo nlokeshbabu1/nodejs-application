@@ -17,8 +17,8 @@ jobs:
     
     steps:
 
-    - name: change the permission of the docker file
-      run: sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork 
+#    - name: change the permission of the docker file
+#      run: sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork 
     
     - name: checkout the code
       uses: actions/checkout@v4
