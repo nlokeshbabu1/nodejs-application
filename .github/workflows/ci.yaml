@@ -31,11 +31,15 @@ jobs:
       env:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      with:
+        args:
+          -Dsonar.projectKey=nodejs
         
 
-    - name: run sonarqube
-      run: |
-        sonar-scanner -Dsonar.projectKey=sample-nodejs -Dsonar.sources=. -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
+#    - name: run sonarqube
+#      run: |
+#        sonar-scanner -Dsonar.projectKey=sample-nodejs -Dsonar.sources=. -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
 
 
 
