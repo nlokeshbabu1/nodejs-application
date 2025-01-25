@@ -87,6 +87,17 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
+
+
+  deploy:
+    runs-on: self-hosted
+    needs: trivy_scan
+    steps:
+    - name: deploy the code
+      run: |
+        docker run -d -p 3000:3000 ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs:${{github.run_id}}
+
+
         
 
 
