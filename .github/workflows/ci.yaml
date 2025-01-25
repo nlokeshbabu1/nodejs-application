@@ -19,6 +19,9 @@ jobs:
     - name: checkout the code
       uses: actions/checkout@v4
 
+    - name: change the permission of the docker file
+      run: sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork
+
     ##Install the nodes js 
     - name: setup nodes js 
       uses: actions/setup-node@v4
@@ -60,8 +63,7 @@ jobs:
       uses: actions/checkout@v4
 
 
-    - name: change the permission of the docker file
-      run: sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork
+
 
     #login to docker
     - name: login to docker hub
