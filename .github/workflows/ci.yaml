@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  security-events: read # Required for the Trivy action to upload results to the Security tab
+  security-events: write # Required for the Trivy action to upload results to the Security tab
 
 
 jobs:
