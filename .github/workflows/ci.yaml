@@ -18,7 +18,7 @@ jobs:
     steps:
 
     - name: change the permission of the docker file
-      run: 
+      run: |
         if [ -d /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork ]; then
           echo "Directory exists changing the permission"
           sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork
@@ -70,7 +70,7 @@ jobs:
     
     
     - name: change the permission of the docker file
-      run: 
+      run: |
         if [ -d /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork ]; then
           echo "Directory exists changing the permission"
           sudo chmod -R 777 /home/lokesh/actions-runner/_work/nodejs-application/nodejs-application/.scannerwork
