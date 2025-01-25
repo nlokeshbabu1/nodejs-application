@@ -4,6 +4,12 @@ on:
   push:
     branches: [ "master" ]
 
+
+
+permissions:
+  contents: write
+
+
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -84,6 +90,8 @@ jobs:
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
+        env:
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
         with:
           sarif_file: 'trivy-results.sarif'
 
