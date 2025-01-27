@@ -138,7 +138,7 @@ jobs:
 
       - name: Update image tag in k8s file
         run: |
-          sed -i "s|image:.*|${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs:${{github.run_id}}|g" kubernetesfile/deployment.yaml    
+          sed -i "s|image:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs:${{github.run_id}}|g" kubernetesfile/deployment.yaml    
 
 
       - name: Commit the changes
