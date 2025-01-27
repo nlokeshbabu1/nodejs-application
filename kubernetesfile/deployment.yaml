@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+specs:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: 
+        ports:
+        - containerPort: 3000
+      liveinessProbe:
+        httpGet: http://localhost:3000
+        initialDelaySeconds: 5 # wait for 5 seconds before checking
+        periodSeconds: 5 # check every 5 seconds
+        timeoutSeconds: 2 # wait for 2 seconds before timing out
+        successThreshold: 2 # number of successful checks before considering the container healthy
+        failureThreshold: 3 # number of failed checks before considering the container unhealthy
+      readinessProbe:
+        httpGet: http://localhost:3000
+        initialDelaySeconds: 5 # wait for 5 seconds before checking
+        periodSeconds: 5 # check every 5 seconds
+        timeoutSeconds: 2 # wait for 2 seconds before timing out
+        successThreshold: 2 # number of successful checks before considering the container healthy
+        failureThreshold: 3 # number of failed checks before considering the container unhealthy
