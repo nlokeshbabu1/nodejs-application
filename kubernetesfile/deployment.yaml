@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image:  
+        image: nlokeshbabu/sample-nodejs:13025548970
         ports:
         - containerPort: 3000
         livenessProbe:
