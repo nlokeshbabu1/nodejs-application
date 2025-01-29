@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Home route
 app.get('/', (req, res) => {
-  res.send('Welcome to the Simple Web Application!');
+  res.send('Hello all this CI/CD using github actions and argocd ');
 });
 
 // Example route to fetch user data
